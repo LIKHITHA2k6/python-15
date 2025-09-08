@@ -1,0 +1,43 @@
+class Stack:
+    """A simple implementation of a Stack data structure."""
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        """Returns True if the stack is empty, False otherwise."""
+        return not self.items
+
+    def push(self, item):
+        """Adds an item to the top of the stack."""
+        self.items.append(item)
+        print(f"Pushed {item} onto the stack.")
+
+    def pop(self):
+        """Removes and returns the item from the top of the stack."""
+        if not self.is_empty():
+            return self.items.pop()
+        else:
+            print("Stack is empty. Cannot pop.")
+            return None
+
+    def peek(self):
+        """Returns the item at the top of the stack without removing it."""
+        if not self.is_empty():
+            return self.items[-1]
+        else:
+            print("Stack is empty.")
+            return None
+
+# Example usage of the Stack class
+my_stack = Stack()
+my_stack.push(10)
+my_stack.push(20)
+my_stack.push(30)
+
+print(f"Top of the stack is: {my_stack.peek()}")
+
+popped_item = my_stack.pop()
+if popped_item is not None:
+    print(f"Popped item: {popped_item}")
+
+print(f"Is the stack empty? {my_stack.is_empty()}")
